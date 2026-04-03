@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 30% 96%;
+    --foreground: 220 40% 13%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 40% 13%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 40% 13%;
+
+    --primary: 18 46% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 25% 90%;
+    --secondary-foreground: 220 40% 20%;
+
+    --muted: 220 20% 92%;
+    --muted-foreground: 220 15% 46%;
+
+    --accent: 18 40% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 88%;
+    --input: 220 20% 88%;
+    --ring: 18 46% 65%;
+
+    --radius: 0.75rem;
+
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    --gradient-primary: linear-gradient(135deg, hsl(18 46% 65%), hsl(12 55% 58%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(220 30% 97%));
+    --gradient-hero: linear-gradient(180deg, hsl(220 40% 13%) 0%, hsl(220 50% 20%) 50%, hsl(220 40% 13%) 100%);
+
+    --shadow-glow: 0 0 40px hsl(18 46% 65% / 0.2);
+    --shadow-card: 0 4px 24px hsl(220 40% 13% / 0.08);
+
+    --sidebar-background: 220 40% 13%;
+    --sidebar-foreground: 220 20% 90%;
+    --sidebar-primary: 18 46% 65%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 35% 22%;
+    --sidebar-accent-foreground: 220 20% 90%;
+    --sidebar-border: 220 30% 20%;
+    --sidebar-ring: 18 46% 65%;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+@layer components {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-primary);
+  }
+
+  .card-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .card-elevated {
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-card);
+  }
+
+  .btn-primary-glow {
+    background-image: var(--gradient-primary);
+    box-shadow: 0 4px 20px hsl(18 46% 65% / 0.3);
+    @apply text-primary-foreground font-semibold;
+  }
+
+  .btn-primary-glow:hover {
+    box-shadow: 0 6px 30px hsl(18 46% 65% / 0.5);
+    transform: translateY(-1px);
+  }
+
+  .section-padding {
+    @apply px-6 py-20 md:px-12 lg:px-20 xl:px-32;
+  }
+
+  .glass {
+    @apply backdrop-blur-xl;
+    background: hsl(0 0% 100% / 0.85);
+    border: 1px solid hsl(220 20% 88% / 0.7);
+  }
+}
